@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>تحليلات المصطلحات  </title>
+
+  <!-- Cairo Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;1000&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        container: { center: true, padding: { DEFAULT:'1rem', sm:'1rem' } },
+        extend: {
+          fontFamily: { sans:["Cairo","ui-sans-serif","system-ui","Apple Color Emoji","Segoe UI Emoji"] },
+          colors:{
+            brand:{50:'#eef2ff',100:'#e0e7ff',600:'#4f46e5',700:'#4338ca'},
+            skyx:{100:'#bae6fd',500:'#0ea5e9'},
+            ok:{50:'#f3faf0',100:'#e9f8df',500:'#22c55e'},
+            bad:{50:'#fff1f2',100:'#ffe3e6',500:'#ef4444'},
+            tip:{50:'#fff7ed',200:'#fed7aa'}
+          },
+          boxShadow:{ soft:'0 10px 30px rgba(2,6,23,.10)' }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root{ --safe-bottom: env(safe-area-inset-bottom, 0px); }
+    body{
+      background:
+        radial-gradient(ellipse at 20% -10%, rgba(14,165,233,.10), transparent 45%),
+        radial-gradient(ellipse at 120% 0%, rgba(79,70,229,.12), transparent 45%),
+        radial-gradient(#f1f5f9 1px, transparent 1px);
+      background-size: auto, auto, 22px 22px;
+      background-attachment: fixed;
+    }
+    @media (prefers-reduced-motion:no-preference){
+      .fade{animation:fade .25s ease-out both}
+      @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+      .pop{animation:pop .18s ease-out both}
+      @keyframes pop{from{opacity:.92;transform:scale(.98)}to{opacity:1;transform:scale(1)}}
+    }
+  </style>
+</head>
+<body class="min-h-dvh text-slate-800 antialiased selection:bg-brand-100/60">
+<!-- Header-->
+ <header class="bg-gradient-to-l from-skyx-500 to-brand-700 text-white shadow-md">
+  <div class="container max-w-screen-sm py-3">
+    <div class="flex items-center justify-between gap-3">
+      
+      <div class="flex items-center gap-2">
+        <img class="h-9 w-9 rounded-full ring-2 ring-white/70" src="https://i.pravatar.cc/60" alt="صورة المستخدم"/>
+        <span class="hidden sm:inline text-sm sm:text-base text-white">أهلًا محمد!</span>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <div class="flex items-center justify-center h-10 w-10 rounded-full bg-white shadow">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-700" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2a1 1 0 0 1 1 1v1.07a7.001 7.001 0 0 1 5.9 5.9H21a1 1 0 1 1 0 2h-2.1a7.001 7.001 0 0 1-5.9 5.9V21a1 1 0 1 1-2 0v-2.1a7.001 7.001 0 0 1-5.9-5.9H3a1 1 0 1 1 0-2h2.1a7.001 7.001 0 0 1 5.9-5.9V3a1 1 0 0 1 1-1zm-4 9a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm8 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+          </svg>
+        </div>
+
+        <button class="flex items-center gap-2 rounded-full bg-white/15 hover:bg-white/25 px-3 py-1.5 backdrop-blur transition" aria-label="رجوع">
+          <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 19-7-7 7-7"/>
+          </svg>
+          <span class="hidden sm:inline text-sm">رجوع</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="mt-3 grid grid-cols-3 gap-3">
+  <a href="#" class="group rounded-xl py-2.5 px-3 bg-white/10 backdrop-blur border border-white/20 shadow-md hover:bg-white/20 transition block text-center">
+    <div class="font-semibold text-white">مصطلحات</div>
+    <div class="text-[11px] text-white/80">Vocabulary</div>
+  </a>
+
+  <a href="grammar.html" class="group rounded-xl py-2.5 px-3 bg-white/10 backdrop-blur border border-white/20 shadow-md hover:bg-white/20 transition block text-center">
+    <div class="font-semibold text-white">النحو</div>
+    <div class="text-[11px] text-white/80">Grammar</div>
+  </a>
+
+  <a href="index.html" class="group rounded-xl py-2.5 px-3 bg-white/10 backdrop-blur border border-white/20 shadow-md hover:bg-white/20 transition block text-center">
+    <div class="font-semibold text-white">النطق</div>
+    <div class="text-[11px] text-white/80">Pronunciation</div>
+  </a>
+</div>
+
+  </div>
+</header>
+
+
+  <!-- Content -->
+ <section class="rounded-3xl bg-white border border-slate-200 shadow-soft overflow-hidden fade mb-32">
+  <div class="bg-indigo-800 text-white text-center py-3 font-bold">Vocabulary || ملخص سريع</div>
+
+  <div class="p-5 sm:p-6 space-y-5">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="rounded-2xl border border-slate-200 p-4 grid place-items-center">
+        <div class="relative size-28" aria-label="دقّة المصطلحات">
+          <svg viewBox="0 0 120 120" class="block text-brand-700">
+            <circle cx="60" cy="60" r="52" stroke-width="12" class="text-slate-200" stroke="currentColor" fill="none"></circle>
+            <circle id="homeScoreRingFg" cx="60" cy="60" r="52" stroke-width="12" stroke-linecap="round" class="text-brand-700"
+              stroke="currentColor" fill="none" stroke-dasharray="326.726" stroke-dashoffset="326.726"></circle>
+          </svg>
+          <div id="homeScoreText" class="absolute inset-0 grid place-items-center text-brand-700 text-2xl font-extrabold">0%</div>
+        </div>
+        <div class="mt-2 text-xs text-slate-600">دقة الاستخدام</div>
+      </div>
+
+      <div class="rounded-2xl border border-slate-200 p-4">
+        <div class="text-slate-500 text-sm">الأخطاء</div>
+        <div class="mt-1 flex items-end gap-2">
+          <div class="text-3xl font-black text-rose-600">5</div>
+          <span class="text-xs text-slate-500">في آخر تمرين</span>
+        </div>
+        <div class="mt-3 h-2 rounded-full bg-rose-100 overflow-hidden">
+          <div class="h-full w-[35%] bg-rose-500"></div>
+        </div>
+      </div>
+
+      <div class="rounded-2xl border border-slate-200 p-4">
+        <div class="text-slate-500 text-sm">تكرار كلمات</div>
+        <div class="mt-1 flex items-end gap-2">
+          <div class="text-3xl font-black text-amber-600">7</div>
+          <span class="text-xs text-slate-500">مرات</span>
+        </div>
+        <div class="mt-3 h-2 rounded-full bg-amber-100 overflow-hidden">
+          <div class="h-full w-[60%] bg-amber-400"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="homeAlert" class="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 flex items-start gap-3">
+      <span class="grid place-items-center size-8 rounded-xl bg-amber-100">⚠️</span>
+      <div class="text-amber-900 text-sm sm:text-base">
+        لاحظنا تكرار كلمات عامة مثل <span class="font-mono">nice</span> و<span class="font-mono">good</span>. جرّبي بدائل أقوى لرفع الدرجة.
+      </div>
+      <button id="dismissHomeAlert" class="ms-auto rounded-lg p-2 hover:bg-amber-100" aria-label="إخفاء">
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+
+    <div class="flex flex-wrap gap-3 pt-2">
+      <button id="openModal" class="w-full sm:w-auto min-h-11 px-4 py-3 rounded-xl bg-gradient-to-l from-skyx-500 to-brand-700 text-white font-semibold shadow-lg shadow-sky-900/5 hover:opacity-95 active:scale-[.99] transition">
+        عرض التفاصيل
+      </button>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Modal -->
+  <div id="modal" class="fixed inset-0 hidden items-center justify-center bg-black/40 backdrop-blur-xs p-4" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="w-full max-w-md rounded-2xl bg-white p-0 shadow-soft pop ring-1 ring-slate-900/5">
+      <div class="flex items-center justify-between px-5 py-4 border-b">
+        <h3 id="modalTitle" class="text-base sm:text-lg font-bold">نتيجة سريعة — المصطلحات</h3>
+        <button id="closeModal" class="rounded-full p-2 hover:bg-slate-100 active:scale-[.98]" aria-label="إغلاق">
+          <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="px-5 pt-5 pb-4 space-y-4 max-h-[90dvh] overflow-y-auto">
+        <div class="mx-auto grid place-items-center py-2">
+          <div class="flex items-center justify-center gap-2 sm:gap-3">
+            <span class="rounded-full bg-bad-100 text-bad-500 px-2 py-[1px] text-[10px] sm:text-xs font-medium border border-rose-200 whitespace-nowrap">استخدام خاطئ</span>
+                       <div class="mx-2 w-24 h-24 grid place-items-center rounded-full bg-brand-50 text-brand-700 text-2xl font-extrabold border-2 border-brand-100">80%</div>
+
+            <span class="rounded-full bg-ok-100 text-ok-500 px-2 py-[1px] text-[10px] sm:text-xs font-medium border border-emerald-200 whitespace-nowrap">استخدام صحيح</span>
+          </div>
+        </div>
+
+        <ul class="space-y-3">
+          <li class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div class="flex items-center gap-2 rounded-xl bg-bad-100 p-3 border border-rose-200/60">
+              <span class="grid place-items-center h-6 w-6 rounded-full bg-bad-500 text-white text-[11px]">×</span>
+              <span class="font-mono">nice</span>
+              <span class="text-xs text-slate-600">(4 times)</span>
+            </div>
+            <div class="flex items-center gap-2 rounded-xl bg-ok-50 p-3 border border-emerald-200/70">
+              <span class="grid place-items-center h-6 w-6 rounded-full bg-ok-500 text-white text-[11px]">✓</span>
+              <span>بدائل:</span>
+              <span class="font-mono">Wonderful, Amazing, Impressive</span>
+            </div>
+          </li>
+          <li class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div class="flex items-center gap-2 rounded-xl bg-bad-100 p-3 border border-rose-200/60">
+              <span class="grid place-items-center h-6 w-6 rounded-full bg-bad-500 text-white text-[11px]">×</span>
+              <span class="font-mono">good</span>
+              <span class="text-xs text-slate-600">(3 times)</span>
+            </div>
+            <div class="flex items-center gap-2 rounded-xl bg-ok-50 p-3 border border-emerald-200/70">
+              <span class="grid place-items-center h-6 w-6 rounded-full bg-ok-500 text-white text-[11px]">✓</span>
+              <span>بدائل:</span>
+              <span class="font-mono">Excellent, Outstanding, Strong</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-between gap-3 px-5 py-4 border-t">
+        <button id="viewFull" class="w-full sm:w-auto min-h-11 px-4 py-2.5 rounded-xl bg-gradient-to-l from-skyx-500 to-brand-700 text-white font-semibold active:scale-[.99] transition">عرض التفاصيل الكاملة</button>
+        <button id="justClose" class="w-full sm:w-auto min-h-11 px-4 py-2.5 rounded-xl border border-slate-200 hover:bg-slate-50">إغلاق</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full Screen -->
+  <div id="fullScreen" class="fixed inset-0 hidden bg-white overflow-y-auto">
+    <header class="sticky top-0 bg-white/90 backdrop-blur-xs border-b">
+      <div class="container max-w-3xl flex items-center justify-between gap-3 py-3">
+        <h1 class="text-lg sm:text-xl font-extrabold tracking-tight">تحليل المصطلحات — التفاصيل الكاملة</h1>
+        <button id="closeFull" class="px-3 py-2 rounded-lg border border-slate-200 hover:bg-slate-50 active:scale-[.99] transition">رجوع</button>
+      </div>
+    </header>
+
+    <main class="container max-w-3xl p-4 sm:p-6 space-y-6 pb-28">
+      <section class="rounded-3xl bg-white border border-slate-200 shadow-soft overflow-hidden">
+        <div class="bg-brand-700 text-white text-center py-3 font-semibold">Vocabulary || تحليلات المصطلحات</div>
+        <div class="p-6">
+          <div class="flex items-center justify-center gap-2 sm:gap-4">
+            <span class="rounded-full bg-bad-100 text-bad-500 px-2 py-[1px] text-[10px] sm:text-xs font-semibold border border-rose-200 whitespace-nowrap">استخدام خاطئ</span>
+            <div class="w-32 h-32 grid place-items-center rounded-full bg-brand-50 text-brand-700 text-4xl font-extrabold border-2 border-brand-100">80%</div>
+            <span class="rounded-full bg-ok-100 text-ok-500 px-2 py-[1px] text-[10px] sm:text-xs font-semibold border border-emerald-200 whitespace-nowrap">استخدام صحيح</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="rounded-3xl bg-white border border-slate-200 shadow-soft p-5 sm:p-6 space-y-4">
+        <h2 class="text-base sm:text-lg font-bold">تفاصيل الكلمات المكررة والبدائل</h2>
+        <div class="space-y-4">
+          <article class="rounded-2xl overflow-hidden border border-slate-200">
+            <div class="flex items-center gap-2 bg-bad-50 p-3 border-b border-rose-200/70"><span class="grid place-items-center h-6 w-6 rounded-full bg-bad-500 text-white text-[11px]">×</span><span class="font-mono">nice</span><span class="text-xs text-slate-600">(4 times)</span></div>
+            <div class="flex items-center gap-2 bg-ok-50 p-3"><span class="grid place-items-center h-6 w-6 rounded-full bg-ok-500 text-white text-[11px]">✓</span><span>بدائل مقترحة:</span><span class="font-mono">Wonderful, Amazing, Impressive</span></div>
+          </article>
+          <article class="rounded-2xl overflow-hidden border border-slate-200">
+            <div class="flex items-center gap-2 bg-bad-50 p-3 border-b border-rose-200/70"><span class="grid place-items-center h-6 w-6 rounded-full bg-bad-500 text-white text-[11px]">×</span><span class="font-mono">good</span><span class="text-xs text-slate-600">(3 times)</span></div>
+            <div class="flex items-center gap-2 bg-ok-50 p-3"><span class="grid place-items-center h-6 w-6 rounded-full bg-ok-500 text-white text-[11px]">✓</span><span>بدائل مقترحة:</span><span class="font-mono">Excellent, Outstanding, Strong</span></div>
+
+              <div class="mt-4 rounded-2xl bg-amber-50 border border-tip-200 p-4">
+          <div class="flex items-start gap-3 text-amber-900">
+            <span class="grid place-items-center size-9 rounded-xl bg-amber-100">💡</span>
+            <p class="text-sm sm:text-base">اجعل تركيب الجملة بسيطًا، وتأكد من صحة أزمنة الأفعال.</p>
+          </div>
+        </div>
+          </article>
+        </div>
+      </section>
+
+    
+    </main>
+  </div>
+
+  <!-- Bottom Nav -->
+  <nav class="fixed inset-x-0 bottom-0 bg-white/85 backdrop-blur-xs border-t" style="padding-bottom: calc(10px + var(--safe-bottom))">
+    <div class="container max-w-screen-sm flex items-center justify-between px-4 py-3">
+      <button class="opacity-75 hover:opacity-100 transition ease-out active:scale-[.98]" aria-label="لوحة">
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <button class="opacity-75 hover:opacity-100 transition ease-out active:scale-[.98]" aria-label="إضافة">
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8m-4-4h8"/></svg>
+      </button>
+      <button class="text-brand-700 drop-shadow-sm" aria-current="page" aria-label="التدريبات">
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h18v4H3zM3 10h18v11H3z"/></svg>
+      </button>
+      <button class="opacity-75 hover:opacity-100 transition ease-out active:scale-[.98]" aria-label="الرئيسية">
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3l9 8-1.5 1.5L12 6 4.5 12.5 3 11z"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <script>
+    const VOCAB_SCORE = 80; 
+
+    const modal = document.getElementById('modal');
+    const full = document.getElementById('fullScreen');
+
+    const openModalBtn = document.getElementById('openModal');
+    if(openModalBtn){
+      openModalBtn.addEventListener('click', ()=>{
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow='hidden';
+        animateScore(VOCAB_SCORE); 
+      });
+    }
+
+    function closeModal(){
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow='';
+    }
+    document.getElementById('closeModal')?.addEventListener('click', closeModal);
+    document.getElementById('justClose')?.addEventListener('click', closeModal);
+
+    document.getElementById('viewFull')?.addEventListener('click', ()=>{
+      closeModal();
+      full.classList.remove('hidden');
+    });
+    document.getElementById('closeFull')?.addEventListener('click', ()=> full.classList.add('hidden'));
+
+    document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ closeModal(); full.classList.add('hidden'); }});
+    modal.addEventListener('click', e=>{ if(e.target===modal) closeModal(); });
+
+    function animateScore(target = 80, duration = 900){
+      const fg = document.getElementById('scoreRingFg');
+      const txt = document.getElementById('scoreText');
+      if(!fg || !txt) return;
+
+      const r = 52; 
+      const C = 2 * Math.PI * r;
+      fg.style.strokeDasharray = C;
+      fg.style.strokeDashoffset = C;
+
+      let start = null;
+      function step(ts){
+        if(!start) start = ts;
+        const progress = Math.min((ts - start) / duration, 1);
+        const val = Math.floor(progress * target);
+        fg.style.strokeDashoffset = C * (1 - val / 100);
+        txt.textContent = val + '%';
+        if(progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+  </script>
+
+
+<script>
+  const HOME_SCORE = 80;
+
+  function animateHomeScore(target = 80, duration = 900){
+    const fg = document.getElementById('homeScoreRingFg');
+    const txt = document.getElementById('homeScoreText');
+    if(!fg || !txt) return;
+    const r = 52, C = 2 * Math.PI * r;
+    fg.style.strokeDasharray = C;
+    fg.style.strokeDashoffset = C;
+
+    let start = null;
+    function step(ts){
+      if(!start) start = ts;
+      const progress = Math.min((ts - start)/duration, 1);
+      const val = Math.floor(progress * target);
+      fg.style.strokeDashoffset = C * (1 - val/100);
+      txt.textContent = val + '%';
+      if(progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  window.addEventListener('DOMContentLoaded', ()=> {
+    animateHomeScore(HOME_SCORE);
+    document.getElementById('dismissHomeAlert')?.addEventListener('click', ()=>{
+      document.getElementById('homeAlert')?.classList.add('hidden');
+    });
+  });
+</script>
+
+</body>
+</html>

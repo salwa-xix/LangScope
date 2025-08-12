@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>تقييم اللغة</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        container: { center: true, padding: { DEFAULT: '1rem', sm: '1rem' } },
+        extend: {
+          colors: {
+            brand: { 50:'#eef2ff',100:'#e0e7ff',200:'#c7d2fe',500:'#4f46e5',600:'#4338ca',700:'#3730a3' },
+            skyx: { 400:'#38bdf8', 500:'#0ea5e9' },
+            leaf: { 100:'#dcfce7', 500:'#22c55e' },
+            rosex:{ 100:'#ffe4e6', 500:'#ef4444' }
+          },
+          boxShadow:{ soft:'0 6px 18px rgba(2,6,23,.08)' },
+          borderRadius:{ xl2:'1.25rem' }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root{ --safe-bottom: env(safe-area-inset-bottom, 0px); }
+    body{ background-image: radial-gradient(#f1f5f9 1px, transparent 1px); background-size: 22px 22px; }
+    @media (prefers-reduced-motion:no-preference){
+      .fade{ animation:fade .25s ease both }
+      @keyframes fade{ from{opacity:0; transform:translateY(4px)} to{opacity:1; transform:translateY(0)} }
+      .pop{ animation:pop .18s ease both } @keyframes pop{ from{opacity:.92; transform:scale(.98)} to{opacity:1; transform:scale(1)} }
+    }
+  </style>
+</head>
+<body class="min-h-dvh text-slate-800 selection:bg-brand-100">
+
+ <header class="bg-gradient-to-l from-skyx-500 to-brand-700 text-white shadow-md">
+  <div class="container max-w-screen-sm py-3">
+    <div class="flex items-center justify-between gap-3">
+      
+      <div class="flex items-center gap-2">
+        <img class="h-9 w-9 rounded-full ring-2 ring-white/70" src="https://i.pravatar.cc/60" alt="صورة المستخدم"/>
+        <span class="hidden sm:inline text-sm sm:text-base text-white">أهلًا محمد!</span>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <div class="flex items-center justify-center h-10 w-10 rounded-full bg-white shadow">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-700" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2a1 1 0 0 1 1 1v1.07a7.001 7.001 0 0 1 5.9 5.9H21a1 1 0 1 1 0 2h-2.1a7.001 7.001 0 0 1-5.9 5.9V21a1 1 0 1 1-2 0v-2.1a7.001 7.001 0 0 1-5.9-5.9H3a1 1 0 1 1 0-2h2.1a7.001 7.001 0 0 1 5.9-5.9V3a1 1 0 0 1 1-1zm-4 9a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm8 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+          </svg>
+        </div>
+
+        <button class="flex items-center gap-2 rounded-full bg-white/15 hover:bg-white/25 px-3 py-1.5 backdrop-blur transition" aria-label="رجوع">
+          <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 19-7-7 7-7"/>
+          </svg>
+          <span class="hidden sm:inline text-sm">رجوع</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+<div class="mt-3 grid grid-cols-3 gap-3">
+  <a href="vocabulary.html" class="group rounded-xl py-2.5 px-3 bg-white/10 backdrop-blur border border-white/20 shadow-md hover:bg-white/20 transition block text-center">
+    <div class="font-semibold text-white">مصطلحات</div>
+    <div class="text-[11px] text-white/80">Vocabulary</div>
+  </a>
+
+  <a href="grammar.html" class="group rounded-xl py-2.5 px-3 bg-white/10 backdrop-blur border border-white/20 shadow-md hover:bg-white/20 transition block text-center">
+    <div class="font-semibold text-white">النحو</div>
+    <div class="text-[11px] text-white/80">Grammar</div>
+  </a>
+
+  <a href="#" class="group rounded-xl py-2.5 px-3 bg-white/10 backdrop-blur border border-white/20 shadow-md hover:bg-white/20 transition block text-center">
+    <div class="font-semibold text-white">النطق</div>
+    <div class="text-[11px] text-white/80">Pronunciation</div>
+  </a>
+</div>
+
+</header>
+
+  <!-- Content -->
+  <section class="rounded-3xl bg-white border border-slate-200 shadow-soft overflow-hidden fade">
+    <div class="bg-brand-700 text-white text-center py-3 font-bold">Pronunciation || ملخص سريع</div>
+
+    <div class="p-5 sm:p-6 space-y-5">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="rounded-2xl border border-slate-200 p-4 grid place-items-center">
+          <div class="relative size-28" aria-label="دقّة النحو">
+            <svg viewBox="0 0 120 120" class="block text-brand-700">
+              <circle cx="60" cy="60" r="52" stroke-width="12" class="text-slate-200" stroke="currentColor" fill="none"></circle>
+              <circle id="grammarScoreRingFg" cx="60" cy="60" r="52" stroke-width="12" stroke-linecap="round" class="text-brand-700"
+                stroke="currentColor" fill="none" stroke-dasharray="326.726" stroke-dashoffset="326.726"></circle>
+            </svg>
+            <div id="grammarScoreText" class="absolute inset-0 grid place-items-center text-brand-700 text-2xl font-extrabold">0%</div>
+          </div>
+          <div class="mt-2 text-xs text-slate-600">دقّة النطق</div>
+        </div>
+
+        <div class="rounded-2xl border border-slate-200 p-4">
+          <div class="rounded-2xl  p-4">
+          <div class="text-slate-500 text-sm mb-2">أكثر الأصوات صعوبة</div>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-center justify-between"><span>/θ/ (think)</span><span class="h-2 w-20 bg-rose-100 rounded"><b class="block h-2 w-3/4 bg-rose-500 rounded"></b></span></li>
+            <li class="flex items-center justify-between"><span>/ð/ (this)</span><span class="h-2 w-20 bg-rose-100 rounded"><b class="block h-2 w-2/3 bg-rose-500 rounded"></b></span></li>
+            <li class="flex items-center justify-between"><span>/ɪ/ vs /iː/</span><span class="h-2 w-20 bg-rose-100 rounded"><b class="block h-2 w-1/2 bg-rose-500 rounded"></b></span></li>
+          </ul>
+        </div>
+        </div>
+
+        <div class="rounded-2xl border border-slate-200 p-4">
+       <div class="text-slate-500 text-sm mb-2">سرعة الكلام</div>
+          <div class="text-3xl font-black text-brand-700">145 <span class="text-sm font-semibold">WPM</span></div>
+          <div class="mt-3 h-2 rounded-full bg-slate-100 overflow-hidden">
+            <div class="h-full w-[60%] bg-brand-600"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="grammarAlert" class="rounded-2xl border border-blue-200 bg-blue-50 px-4 py-3 flex items-start gap-3">
+        <span class="grid place-items-center size-8 rounded-xl bg-blue-100">ℹ️</span>
+        <div class="text-blue-900 text-sm sm:text-base">
+          لاحظنا وجود أخطاء في ترتيب الكلمات. جرّبي مراجعة قاعدة <span class="font-mono">Subject-Verb-Object</span> لزيادة الدقة.
+        </div>
+        <button id="dismissGrammarAlert" class="ms-auto rounded-lg p-2 hover:bg-blue-100" aria-label="إخفاء">
+          <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+
+       <div class="flex flex-wrap gap-3 pt-2">
+    <button id="openModal" class="px-4 py-3 rounded-xl bg-gradient-to-l from-brand-700 to-skyx-500 text-white font-semibold shadow-lg shadow-sky-900/5 hover:opacity-95 active:scale-[.99] transition">
+  عرض التفاصيل
+</button>
+
+  </section>
+
+  <!-- Modal  -->
+  <div id="grammarModal" class="fixed inset-0 hidden items-center justify-center bg-black/40 backdrop-blur-xs p-4" role="dialog" aria-modal="true" aria-labelledby="grammarModalTitle">
+    <div class="w-full max-w-md rounded-2xl bg-white p-0 shadow-soft pop ring-1 ring-slate-900/5">
+      <div class="flex items-center justify-between px-5 py-4 border-b">
+        <h3 id="grammarModalTitle" class="text-base sm:text-lg font-bold">نتيجة سريعة — النحو</h3>
+        <button id="closeGrammarModal" class="rounded-full p-2 hover:bg-slate-100 active:scale-[.98]" aria-label="إغلاق">
+          <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="px-5 pt-5 pb-4 space-y-4 max-h-[70dvh] overflow-y-auto">
+        <div class="mx-auto grid place-items-center py-2">
+          <div id="grammarScoreRingWrap" class="relative size-28 sm:size-32" aria-label="درجة النحو">
+            <svg viewBox="0 0 120 120" class="block text-brand-700">
+              <circle cx="60" cy="60" r="52" stroke-width="12" class="text-slate-200" stroke="currentColor" fill="none"></circle>
+              <circle id="grammarScoreRingModal" cx="60" cy="60" r="52" stroke-width="12" stroke-linecap="round" class="text-brand-700"
+                stroke="currentColor" fill="none" stroke-dasharray="326.726" stroke-dashoffset="326.726"></circle>
+            </svg>
+            <div id="grammarScoreTextModal" class="absolute inset-0 grid place-items-center text-brand-700 text-2xl font-extrabold">0%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- First popup -->
+  <div id="modal" class="fixed inset-0 hidden items-center justify-center bg-black/40 p-4" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="w-full max-w-md rounded-2xl bg-white p-0 shadow-soft pop">
+      <div class="flex items-center justify-between px-5 py-4 border-b">
+        <h3 id="modalTitle" class="text-base sm:text-lg font-semibold">نتيجة سريعة — النطق</h3>
+        <button id="closeModal" class="rounded-full p-2 hover:bg-slate-100" aria-label="إغلاق">
+          <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="px-5 pt-5 pb-4 space-y-4 max-h-[70dvh] overflow-y-auto">
+<div class="flex items-center justify-center gap-2">
+  <span class="rounded-full bg-rosex-100 text-rosex-500 px-2.5 py-0.5 text-xs font-semibold border border-rose-200">
+    استخدام خاطئ
+  </span>
+
+  <div class="w-24 h-24 grid place-items-center rounded-full bg-brand-50 text-brand-700 text-2xl font-extrabold border-2 border-brand-100">
+    72%
+  </div>
+
+  <span class="rounded-full bg-leaf-100 text-leaf-500 px-2.5 py-0.5 text-xs font-semibold border border-emerald-200">
+    استخدام صحيح
+  </span>
+</div>
+
+        <div class="rounded-2xl bg-rosex-100 border border-rose-200 p-4">
+          <div class="flex items-center gap-2 mb-3 text-rosex-500 font-semibold">
+            <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 18 6M6 6l12 12"/></svg>
+            <span>الكلمات المنطوقة بشكل غير صحيح</span>
+          </div>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3 rounded-xl bg-rose-100 p-3">
+              <span class="grid place-items-center h-7 w-7 rounded-md bg-rose-300 text-white text-sm font-bold">1</span>
+              <div class="flex-1">
+                <div class="font-semibold">enthusiasm</div>
+                <div class="text-xs text-slate-600">Try: <span class="font-mono">en-thu-si-asm</span></div>
+              </div>
+              <button class="shrink-0 rounded-full bg-white p-2 border" aria-label="استمع"><svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V5l12 7-12 7z"/></svg></button>
+            </li>
+            <li class="flex items-center gap-3 rounded-xl bg-rose-100 p-3">
+              <span class="grid place-items-center h-7 w-7 rounded-md bg-rose-300 text-white text-sm font-bold">2</span>
+              <div class="flex-1">
+                <div class="font-semibold">vegetable</div>
+                <div class="text-xs text-slate-600">Try: <span class="font-mono">vej-tuh-bl</span></div>
+              </div>
+              <button class="shrink-0 rounded-full bg-white p-2 border" aria-label="استمع"><svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V5l12 7-12 7z"/></svg></button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between gap-3 px-5 py-4 border-t">
+        <button id="viewFull" class="px-4 py-2.5 rounded-xl bg-gradient-to-l from-skyx-500 to-brand-600 text-white font-medium">عرض التفاصيل الكاملة</button>
+        <button id="justClose" class="px-4 py-2.5 rounded-xl border">إغلاق</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fullscreen view -->
+  <div id="fullScreen" class="fixed inset-0 hidden bg-white overflow-y-auto">
+    <header class="sticky top-0 bg-white/90 backdrop-blur border-b">
+      <div class="container max-w-3xl flex items-center justify-between gap-3 py-3">
+        <h1 class="text-lg sm:text-xl font-semibold">تحليل النطق — التفاصيل الكاملة</h1>
+        <button id="closeFull" class="px-3 py-2 rounded-lg border hover:bg-slate-50 transition">رجوع</button>
+      </div>
+    </header>
+
+    <main class="container max-w-3xl p-4 sm:p-6 space-y-6">
+     
+
+  <main class="container max-w-3xl p-4 sm:p-6 space-y-6 pb-24">
+      <section class="rounded-3xl bg-white border border-slate-200 shadow-soft overflow-hidden">
+        <div class="bg-brand-700 text-white text-center py-3 font-semibold">Grammar / تحليلات النحو</div>
+        <div class="p-6">
+          <div class="flex items-center justify-center gap-4">
+<span class="rounded-full bg-rosex-100 text-rosex-500 px-2.5 py-0.5 text-xs font-semibold border border-rose-200">
+    استخدام خاطئ
+  </span>
+            <div class="w-32 h-32 grid place-items-center rounded-full bg-brand-50 text-brand-700 text-4xl font-extrabold border-2 border-brand-100">75%</div>
+  <span class="rounded-full bg-leaf-100 text-leaf-500 px-2.5 py-0.5 text-xs font-semibold border border-emerald-200">
+    استخدام صحيح
+  </span>          </div>
+        </div>
+      </section>
+
+
+      <section class="rounded-3xl bg-white border border-slate-200 shadow-soft p-5 sm:p-6 space-y-4">
+        <h2 class="text-base sm:text-lg font-semibold">تفاصيل الكلمات</h2>
+        <div class="space-y-4">
+          <article class="rounded-2xl border p-4">
+            <header class="flex items-center justify-between mb-2">
+              <div class="font-semibold">enthusiasm</div>
+              <button class="rounded-full border p-2" aria-label="استمع"><svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V5l12 7-12 7z"/></svg></button>
+            </header>
+            <p class="text-sm text-slate-600">Try: <span class="font-mono">en-thu-si-asm</span></p>
+            <div class="mt-3 grid grid-cols-2 gap-3 text-xs">
+              <div class="rounded-xl bg-rose-100 p-3">أخطاء متكررة: إسقاط المقطع <strong>si</strong></div>
+              <div class="rounded-xl bg-leaf-100 p-3">نصيحة: قسّم الكلمة إلى 4 مقاطع وتوقّف وِجهًا</div>
+            </div>
+          </article>
+
+          <article class="rounded-2xl border p-4">
+            <header class="flex items-center justify-between mb-2">
+              <div class="font-semibold">vegetable</div>
+              <button class="rounded-full border p-2" aria-label="استمع"><svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V5l12 7-12 7z"/></svg></button>
+            </header>
+            <p class="text-sm text-slate-600">Try: <span class="font-mono">vej-tuh-bl</span></p>
+            <div class="mt-3 grid grid-cols-2 gap-3 text-xs">
+              <div class="rounded-xl bg-rose-100 p-3">أخطاء: مدّ زائد في <strong>ta</strong></div>
+              <div class="rounded-xl bg-leaf-100 p-3">نصيحة: اختصر نهاية الكلمة إلى <em>bl</em></div>
+
+              
+            <div class="mt-4 rounded-2xl bg-amber-50 border border-tip-200 p-4">
+          <div class="flex items-start gap-3 text-amber-900">
+            <span class="grid place-items-center size-9 rounded-xl bg-amber-100">💡</span>
+            <p class="text-sm sm:text-base">قم بإبطاء النطق لضمان الوضوح!</p>
+          </div>
+        </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+     
+    </main>
+  </div>
+
+  <!-- Bottom Nav -->
+  <nav class="fixed inset-x-0 bottom-0 bg-white/90 backdrop-blur border-t" style="padding-bottom: calc(10px + var(--safe-bottom))">
+    <div class="container max-w-screen-sm flex items-center justify-between px-4 py-3">
+      <button class="opacity-70 hover:opacity-100 transition" aria-label="لوحة"><svg xmlns="http://www.w3.org/2000/svg" class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+      <button class="opacity-70 hover:opacity-100 transition" aria-label="إضافة"><svg xmlns="http://www.w3.org/2000/svg" class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8m-4-4h8"/></svg></button>
+      <button class="text-brand-600" aria-current="page" aria-label="التدريبات"><svg xmlns="http://www.w3.org/2000/svg" class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h18v4H3zM3 10h18v11H3z"/></svg></button>
+      <button class="opacity-70 hover:opacity-100 transition" aria-label="الرئيسية"><svg xmlns="http://www.w3.org/2000/svg" class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3l9 8-1.5 1.5L12 6 4.5 12.5 3 11z"/></svg></button>
+    </div>
+  </nav>
+
+  <script>
+    const $ = (s)=>document.querySelector(s);
+    const modal = $('#modal');
+    const full = $('#fullScreen');
+
+    $('#openModal').addEventListener('click', ()=>{
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow='hidden';
+      $('#justClose').focus();
+    });
+
+    function closeModal(){
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow='';
+    }
+    $('#closeModal').addEventListener('click', closeModal);
+    $('#justClose').addEventListener('click', closeModal);
+
+    $('#viewFull').addEventListener('click', ()=>{
+      closeModal();
+      full.classList.remove('hidden');
+    });
+    $('#closeFull').addEventListener('click', ()=>{ full.classList.add('hidden'); });
+
+    document.addEventListener('keydown', (e)=>{
+      if(e.key==='Escape'){ closeModal(); full.classList.add('hidden'); }
+    });
+
+    modal.addEventListener('click', (e)=>{ if(e.target===modal) closeModal(); });
+
+    $('#dismissGrammarAlert').addEventListener('click', ()=>{
+      $('#grammarAlert').classList.add('hidden');
+    });
+
+    const FG = $('#grammarScoreRingFg');
+    const TXT = $('#grammarScoreText');
+    const R = 52, CIRC = 2*Math.PI*R;
+    const target = 86; 
+    let cur = 0;
+    const anim = setInterval(()=>{
+      cur += 2;
+      if(cur>=target){ cur=target; clearInterval(anim); }
+      const off = CIRC - (CIRC*cur/100);
+      FG.style.strokeDashoffset = off.toFixed(2);
+      TXT.textContent = cur + '%';
+    }, 16);
+  </script>
+</body>
+</html>
